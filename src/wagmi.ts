@@ -1,5 +1,5 @@
 import { http, createConfig } from "wagmi";
-import { baseSepolia } from "wagmi/chains";
+import { polygon } from "wagmi/chains";
 import { inAppWalletConnector } from "@thirdweb-dev/wagmi-adapter";
 import { defineChain as thirdwebChain, createThirdwebClient } from "thirdweb";
 
@@ -13,7 +13,7 @@ export const client = createThirdwebClient({
   clientId,
 });
 
-export const chain = baseSepolia;
+export const chain = polygon;
 
 export const config = createConfig({
   chains: [chain],
@@ -22,7 +22,7 @@ export const config = createConfig({
       client,
       smartAccount: {
         chain: thirdwebChain(chain),
-        sponsorGas: true,
+        sponsorGas: false,
       },
     }),
   ],
